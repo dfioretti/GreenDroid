@@ -26,11 +26,6 @@ import android.widget.TextView;
 
 import com.cyrilmottier.android.greendroid.R;
 
-/**
- * View representation of the {@link ProgressItem}.
- * 
- * @author Cyril Mottier
- */
 public class ProgressItemView extends FrameLayout implements ItemView {
 
     private ProgressBar mProgressBar;

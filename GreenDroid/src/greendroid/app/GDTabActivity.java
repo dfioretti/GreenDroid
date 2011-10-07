@@ -35,8 +35,7 @@ import android.widget.TextView;
 import com.cyrilmottier.android.greendroid.R;
 
 /**
- * An equivalent to a TabActivity that manages fancy tabs and an
- * {@link ActionBar}
+ * An equivalent to a TabActivity that manages fancy tabs and an ActionBar
  * 
  * @author Cyril Mottier
  */
@@ -177,24 +176,10 @@ public class GDTabActivity extends TabActivity implements ActionBarActivity {
      * GDTabActivity methods
      */
 
-    /**
-     * Add a new tab to this GDTabActivity
-     * 
-     * @param tag The tag associated this the new tab
-     * @param labelId A resource ID to the label of the new tab
-     * @param intent The Intent used to start the content of the tab
-     */
     public void addTab(String tag, int labelId, Intent intent) {
         addTab(tag, getString(labelId), intent);
     }
 
-    /**
-     * Add a new tab to this GDTabActivity
-     * 
-     * @param tag The tag associated this the new tab
-     * @param label The label of the new tab
-     * @param intent The Intent used to start the content of the tab
-     */
     public void addTab(String tag, CharSequence label, Intent intent) {
         final TabHost host = getTabHost();
 
@@ -221,7 +206,7 @@ public class GDTabActivity extends TabActivity implements ActionBarActivity {
      * @param parent The parent in which the tab will be added.Please note you
      *            shouldn't add the newly created/inflated View to the parent.
      *            GDTabActivity will deal with this automatically.
-     * @return A newly allocated View representing the tab.
+     * @return
      */
     protected View createTabIndicator(String tag, CharSequence label, ViewGroup parent) {
         return null;

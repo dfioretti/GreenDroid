@@ -21,11 +21,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-/**
- * View representation of the {@link LongTextItem}.
- * 
- * @author Cyril Mottier
- */
 public class LongTextItemView extends TextView implements ItemView {
 
     public LongTextItemView(Context context) {

@@ -16,6 +16,7 @@
 package greendroid.app;
 
 import greendroid.widget.ActionBar;
+import android.app.ExpandableListActivity;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View;
@@ -27,8 +28,10 @@ import android.widget.ExpandableListView;
 import com.cyrilmottier.android.greendroid.R;
 
 /**
- * A {@link GDActivity} equivalent to ExpandableListActivity that manages an
- * ExpandableListView.
+ * A {@link GDActivity} equivalent to {@link ExpandableListActivity} that
+ * manages an {@link ExpandableListView}.
+ * 
+ * @see {@link ExpandableListActivity}
  */
 public class GDExpandableListActivity extends GDActivity implements OnCreateContextMenuListener, ExpandableListView.OnChildClickListener,
         ExpandableListView.OnGroupCollapseListener, ExpandableListView.OnGroupExpandListener {
@@ -50,10 +53,10 @@ public class GDExpandableListActivity extends GDActivity implements OnCreateCont
     /**
      * Override this to populate the context menu when an item is long pressed.
      * menuInfo will contain an
-     * android.widget.ExpandableListView.ExpandableListContextMenuInfo whose
-     * packedPosition is a packed position that should be used with
-     * ExpandableListView#getPackedPositionType(long) and the other similar
-     * methods.
+     * {@link android.widget.ExpandableListView.ExpandableListContextMenuInfo}
+     * whose packedPosition is a packed position that should be used with
+     * {@link ExpandableListView#getPackedPositionType(long)} and the other
+     * similar methods.
      * <p>
      * {@inheritDoc}
      */
@@ -190,10 +193,11 @@ public class GDExpandableListActivity extends GDActivity implements OnCreateCont
 
     /**
      * Gets the position (in packed position representation) of the currently
-     * selected group or child. Use ExpandableListView#getPackedPositionType,
-     * ExpandableListView#getPackedPositionGroup, and
-     * ExpandableListView#getPackedPositionChild to unpack the returned packed
-     * position.
+     * selected group or child. Use
+     * {@link ExpandableListView#getPackedPositionType},
+     * {@link ExpandableListView#getPackedPositionGroup}, and
+     * {@link ExpandableListView#getPackedPositionChild} to unpack the returned
+     * packed position.
      * 
      * @return A packed position representation containing the currently
      *         selected group or child's position and type.

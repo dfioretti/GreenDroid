@@ -18,12 +18,13 @@ package greendroid.widget.item;
 import greendroid.widget.itemview.ItemView;
 import android.content.Context;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.cyrilmottier.android.greendroid.R;
 
 /**
- * Act as a separator between important ListView sections. A separator display
- * text on a single line.
+ * Acts as a separator between important {@link ListView} sections. A separator
+ * display a text on a single line.
  * 
  * @author Cyril Mottier
  */
@@ -37,7 +38,7 @@ public class SeparatorItem extends TextItem {
     }
 
     /**
-     * Construct a SeparatorItem made of the given text
+     * Constructs a SeparatorItem made of the given text
      * 
      * @param text The text for this SeparatorItem
      */

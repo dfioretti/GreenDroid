@@ -24,11 +24,6 @@ import android.widget.TextView;
 
 import com.cyrilmottier.android.greendroid.R;
 
-/**
- * View representation of the {@link SubtextItem}.
- * 
- * @author Cyril Mottier
- */
 public class SubtextItemView extends LinearLayout implements ItemView {
 
     private TextView mTextView;

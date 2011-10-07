@@ -31,7 +31,7 @@ import android.view.ViewGroup;
 import com.cyrilmottier.android.greendroid.R;
 
 /**
- * A DrawableItem displays a single Drawable on the left of the itemview and a
+ * A DrawableItem displays a single Drawable on the left of the item cell and a
  * description text on the right. A DrawableItem takes care of adapting itself
  * depending on the presence of its Drawable.
  * 
@@ -40,7 +40,7 @@ import com.cyrilmottier.android.greendroid.R;
 public class DrawableItem extends TextItem {
 
     /**
-     * The resource identifier for the Drawable.
+     * The resource identifier for the drawable.
      */
     public int drawableId;
 
@@ -62,7 +62,8 @@ public class DrawableItem extends TextItem {
     }
 
     /**
-     * Constructs a new DrawableItem using the specified text and Drawable
+     * Constructs a new DrawableItem that has no Drawable and displays the given
+     * text. Used as it, a DrawableItem is very similar to a TextItem
      * 
      * @param text The text of this DrawableItem
      * @param drawableId The resource identifier of the Drawable
@@ -78,7 +79,8 @@ public class DrawableItem extends TextItem {
     }
 
     @Override
-    public void inflate(Resources r, XmlPullParser parser, AttributeSet attrs) throws XmlPullParserException, IOException {
+    public void inflate(Resources r, XmlPullParser parser, AttributeSet attrs) throws XmlPullParserException,
+            IOException {
         super.inflate(r, parser, attrs);
 
         TypedArray a = r.obtainAttributes(attrs, R.styleable.DrawableItem);

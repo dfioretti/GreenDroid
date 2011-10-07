@@ -21,11 +21,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-/**
- * View representation of the {@link TextItem}.
- * 
- * @author Cyril Mottier
- */
 public class TextItemView extends TextView implements ItemView {
 
     public TextItemView(Context context) {

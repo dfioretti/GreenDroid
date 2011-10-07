@@ -25,8 +25,8 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 
 /**
- * An {@link ImageProcessor} that masks the given Bitmap according to a shape or
- * another Bitmap.
+ * An {@link ImageProcessor} that mask the given {@link Bitmap} according to a
+ * shape or another {@link Bitmap}.
  * 
  * @author Cyril Mottier
  */
@@ -47,11 +47,8 @@ public class MaskImageProcessor implements ImageProcessor {
     private final RectF mRect = new RectF();
 
     /**
-     * Create a new MaskImageProcessor using a simple rectangle as mask.
-     * Specifying a radius > 0, enable clients to use a rounded rectangle,
-     * rather than a rectangle.
-     * 
-     * @param radius The radius for the corners of the rectangle.
+     * Specify radius for the corners of the gradient. If this is > 0, then the
+     * drawable is drawn in a round-rectangle, rather than a rectangle.
      */
     public MaskImageProcessor(float radius) {
         init();
@@ -63,18 +60,10 @@ public class MaskImageProcessor implements ImageProcessor {
     }
 
     /**
-     * <p>
-     * Create a new MaskImageProcessor using a simple rectangle as mask.
-     * Specifying a radius > 0, enable clients to use a rounded rectangle,
-     * rather than a rectangle.
-     * </p>
-     * <p>
      * Specify radii for each of the 4 corners. For each corner, the array
      * contains 2 values, [X_radius, Y_radius]. The corners are ordered
      * top-left, top-right, bottom-right, bottom-left
-     * </p>
      * 
-     * @param radii The radii for the corners of the rectangle
      * @see Path#addRoundRect(RectF, float[], android.graphics.Path.Direction)
      */
     public MaskImageProcessor(float[] radii) {
@@ -86,13 +75,6 @@ public class MaskImageProcessor implements ImageProcessor {
         }
     }
 
-    /**
-     * <p>
-     * Create a new MaskImageProcessor using the specified Bitmap as mask.
-     * </p>
-     * 
-     * @param maskBitmap The Bitmap used for masking
-     */
     public MaskImageProcessor(Bitmap maskBitmap) {
         init();
         mShape = CUSTOM;

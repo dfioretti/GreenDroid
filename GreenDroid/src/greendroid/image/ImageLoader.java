@@ -50,9 +50,6 @@ public class ImageLoader {
 
     private static final String LOG_TAG = ImageLoader.class.getSimpleName();
 
-    /**
-     * @author Cyril Mottier
-     */
     public static interface ImageLoaderCallback {
 
         void onImageLoadingStarted(ImageLoader loader);

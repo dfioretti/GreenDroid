@@ -15,7 +15,6 @@
  */
 package greendroid.widget.item;
 
-import greendroid.widget.AsyncImageView;
 import greendroid.widget.itemview.ItemView;
 
 import java.io.IOException;
@@ -32,30 +31,20 @@ import android.view.ViewGroup;
 import com.cyrilmottier.android.greendroid.R;
 
 /**
- * <p>
- * A ThumbnailItem item is a complex item that wraps a Drawable and two Strings:
- * a title and a subtitle. The representation of that {@link Item} is quite
- * common to Android users: The Drawable is on the left of the item view and on
- * the right the title and the subtitle are displayed like a
- * {@link SubtitleItem}.
- * </p>
- * <p>
- * ThumbnailItem also support the {@link AsyncImageView} widget which enables
- * asynchronous loading of images. When using ThumbnailItem in an asynchronous
- * manner, use {@link ThumbnailItem#drawableId} as the default image (the one
- * displayed while loading) and {@link ThumbnailItem#drawableURL} as the URL of
- * the to-be-loaded image.
- * </p>
+ * A ThumbnailItem item is a complex item that wraps a drawable and two strings
+ * : a title and a subtitle. The representation of that item is quite common to
+ * Android users: The drawable is on the left of the item view and on the right
+ * the title and the subtitle are displayed like a {@link SubtitleItem}.
  * 
  * @author Cyril Mottier
  */
 public class ThumbnailItem extends SubtitleItem {
 
     /**
-     * The resource ID for the Drawable.
+     * The resource ID for the drawable.
      */
     public int drawableId;
-
+    
     /**
      * An optional URL that may be used to retrieve an image
      */
@@ -68,25 +57,19 @@ public class ThumbnailItem extends SubtitleItem {
     }
 
     /**
-     * Create a new ThumbnailItem.
-     * 
-     * @param text The text to draw
-     * @param subtitle The subtitle to use
-     * @param drawableId The resource identifier to the Drawable
+     * @param text
+     * @param subtitle
+     * @param drawableId
      */
     public ThumbnailItem(String text, String subtitle, int drawableId) {
         this(text, subtitle, drawableId, null);
     }
-
+    
     /**
-     * Create a new ThumbnailItem which will asynchronously load the image at
-     * the given URL.
-     * 
-     * @param text The text to draw
-     * @param subtitle The subtitle to use
-     * @param drawableId The default image used when loading the image at the
-     *            given <em>drawableURL</em>
-     * @param drawableURL The URL pointing to the image to load.
+     * @param text
+     * @param subtitle
+     * @param drawableId
+     * @param drawableURL
      */
     public ThumbnailItem(String text, String subtitle, int drawableId, String drawableURL) {
         super(text, subtitle);
@@ -100,7 +83,8 @@ public class ThumbnailItem extends SubtitleItem {
     }
 
     @Override
-    public void inflate(Resources r, XmlPullParser parser, AttributeSet attrs) throws XmlPullParserException, IOException {
+    public void inflate(Resources r, XmlPullParser parser, AttributeSet attrs) throws XmlPullParserException,
+            IOException {
         super.inflate(r, parser, attrs);
 
         TypedArray a = r.obtainAttributes(attrs, R.styleable.ThumbnailItem);

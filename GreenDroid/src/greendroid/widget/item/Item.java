@@ -29,13 +29,14 @@ import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.cyrilmottier.android.greendroid.R;
 
 /**
  * Base class for all items used in GreenDroid. An item represents a wrapper of
  * data. Each item contains at least all the information needed to display a
- * single row in a ListView.
+ * single row in a {@link ListView}.
  * 
  * @author Cyril Mottier
  */
@@ -45,12 +46,12 @@ public abstract class Item {
     private Object mTag;
 
     /**
-     * Set to true when this item is enabled
+     * Set to true when this item is enabled?
      */
     public boolean enabled;
 
     /**
-     * Create a new item.
+     * Constructs a new item.
      */
     public Item() {
         // By default, an item is enabled
@@ -58,7 +59,7 @@ public abstract class Item {
     }
 
     /**
-     * Return the tag associated to that item.
+     * Returns the tag associated to that item.
      * 
      * @return The tag associated to this item.
      */
@@ -67,8 +68,8 @@ public abstract class Item {
     }
 
     /**
-     * Set the tag associated with this item. A tag is often used to store extra
-     * information.
+     * Sets the tag associated with this item. A tag is often used to store
+     * extra information.
      * 
      * @param tag The tag associated to this item
      */
@@ -77,7 +78,7 @@ public abstract class Item {
     }
 
     /**
-     * Return the tag associated with this item and the specified key.
+     * Returns the tag associated with this item and the specified key.
      * 
      * @param key The key of the tag to retrieve
      * @return The tag associated to the key <em>key</em> or null if no tags are
@@ -88,7 +89,7 @@ public abstract class Item {
     }
 
     /**
-     * Set a tag associated with this item and a key. A tag is often used to
+     * Sets a tag associated with this item and a key. A tag is often used to
      * store extra information.
      * 
      * @param key The key for the specified tag
@@ -102,13 +103,12 @@ public abstract class Item {
     }
 
     /**
-     * Return a view that is associated to the current item. The returned view
+     * Returns a view that is associated to the current item. The returned view
      * is normally capable of being a good recipient for all item's information.
      * 
-     * @param context The Context in which the {@link ItemView} will be used
-     * @param parent The parent View of that new View. The parent is usually the
-     *            parent ListView and may be used to retrieve the correct
-     *            LayoutParams type.
+     * @param context The context in which the {@link ItemView} will be used
+     * @param parent The parent view of that new view. It is usually the parent
+     *            ListView
      * @return A new allocated view for the current Item
      */
     public abstract ItemView newView(Context context, ViewGroup parent);
@@ -124,16 +124,8 @@ public abstract class Item {
         return (ItemView) LayoutInflater.from(context).inflate(layoutID, parent, false);
     }
 
-    /**
-     * Inflate this Item from an XML resource.
-     * 
-     * @param r
-     * @param parser
-     * @param attrs
-     * @throws XmlPullParserException
-     * @throws IOException
-     */
-    public void inflate(Resources r, XmlPullParser parser, AttributeSet attrs) throws XmlPullParserException, IOException {
+    public void inflate(Resources r, XmlPullParser parser, AttributeSet attrs) throws XmlPullParserException,
+            IOException {
         TypedArray a = r.obtainAttributes(attrs, R.styleable.Item);
         enabled = a.getBoolean(R.styleable.Item_enabled, enabled);
         a.recycle();

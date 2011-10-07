@@ -30,6 +30,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.HorizontalScrollView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.cyrilmottier.android.greendroid.R;
@@ -37,9 +38,10 @@ import com.cyrilmottier.android.greendroid.R;
 /**
  * A QuickActionBar displays a set of {@link QuickAction} on a single row. In
  * case too many items are added to the QuickActionBar, the user can
- * horizontally scroll {@link QuickAction}s. Using a QuickActionBar is a great
+ * horizontally scroll QuickActions. Using a QuickActionBar is a great
  * replacement for the long click UI pattern. For instance,
- * {@link QuickActionBar} adds secondary actions to an item of a ListView.
+ * {@link QuickActionBar} adds secondary actions to an item of a
+ * {@link ListView}.
  * 
  * @author Benjamin Fellous
  * @author Cyril Mottier
@@ -84,7 +86,8 @@ public class QuickActionBar extends QuickActionWidget {
     protected void onMeasureAndLayout(Rect anchorRect, View contentView) {
 
         contentView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-        contentView.measure(MeasureSpec.makeMeasureSpec(getScreenWidth(), MeasureSpec.EXACTLY), LayoutParams.WRAP_CONTENT);
+        contentView.measure(MeasureSpec.makeMeasureSpec(getScreenWidth(), MeasureSpec.EXACTLY),
+                LayoutParams.WRAP_CONTENT);
 
         int rootHeight = contentView.getMeasuredHeight();
 

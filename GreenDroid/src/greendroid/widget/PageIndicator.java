@@ -20,6 +20,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.StateListDrawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -29,51 +30,36 @@ import android.view.View;
 import com.cyrilmottier.android.greendroid.R;
 
 /**
- * <p>
- * Visual indicator of a paged content. The PageIndicator usually displays a
- * line of dots. Each dot represents a page. The PageIndicator supports two
- * types of dots.
- * </p>
- * <ul>
- * <li>{@link DotType#SINGLE}: all dots are drawn but only one is in the
- * selected state at a time. The selected one represents the currently visible
- * page.</li>
- * <li>{@link DotType#MULTIPLE}: the selected page is actually represented by
- * the amount of dots currently being drawn. This behavior is similar to the one
- * visible on the Android Launcher application.</li>
- * </ul>
- * <p>
- * You can have a look at GDCatalog to get a sample code of how to use a
- * PageIndicator in addition to a {@link PagedView}.
- * </p>
+ * Visual indicator of a paged content. The {@link PageIndicator} usually
+ * displays a line of dots. Each dot represents a page. {@link PageIndicator}
+ * supports two types of dots. In {@link DotType#SINGLE} mode, all dots are
+ * drawn but only one is is the selected state and represents the selected page,
+ * In {@link DotType#MULTIPLE} the selected page is actually represented by the
+ * amount of dots currently drawn. other dots are drawn.
  * 
  * @author Cyril Mottier
  */
 public class PageIndicator extends View {
 
     /**
-     * Constant that may be used to select none of the dots in the PageIndicator
+     * Constant that may be used to select none of the dots in the
+     * {@link PageIndicator}
      */
     public static final int NO_ACTIVE_DOT = -1;
 
     /**
-     * Interface containing of dot types supported by the PageIndicator class.
+     * Interface containing of dot types supported by the {@link PageIndicator}
+     * class.
      * 
      * @author Cyril Mottier
      */
     public interface DotType {
-
         /**
-         * Represents the single dot type. Only one selected dot may be drawn at
-         * a time.
+         * Represents the single dot type. Only one selected dot may be drawn.
          */
-
         int SINGLE = 0;
-
         /**
-         * Represents the multiple dot type. Several selected dot may be drawn
-         * at a time. The number of dots drawn represents the currently
-         * remaining page count.
+         * Represents the multiple dot type. Several selected dot may be drawn.
          */
         int MULTIPLE = 1;
     }
@@ -135,17 +121,16 @@ public class PageIndicator extends View {
     }
 
     /**
-     * Get the maximum number of dots to be drawn.
+     * How many dots are drawn by this {@link PageIndicator}
      * 
      * @return The maximum number of dots.
-     * @see #setDotCount(int)
      */
     public int getDotCount() {
         return mDotCount;
     }
 
     /**
-     * Set the number of dots.
+     * Sets the number of dots.
      * 
      * @param dotCount The number oF dots
      * @see #getDotCount()
@@ -164,8 +149,8 @@ public class PageIndicator extends View {
 
     /**
      * Return the current active dot. Depending on the current dot type of this
-     * PageIndicator the current active dot may be the number of displayed dots
-     * or the index of the selected dot
+     * {@link PageIndicator} the current active dot may be the number of
+     * displayed dots or the index of the selected dot
      * 
      * @return The current active dot index or dots count
      * @see #setActiveDot(int)
@@ -175,9 +160,9 @@ public class PageIndicator extends View {
     }
 
     /**
-     * Set the index of the active dot or the number of active dots. Depending
-     * on the current dot type of this PageIndicator the current active dot may
-     * be the number of displayed dots or the index of the selected dot
+     * Sets the index of the active dot or the number of active dots. Depending
+     * on the current dot type of this {@link PageIndicator} the current active
+     * dot may be the number of displayed dots or the index of the selected dot
      * 
      * @param activeDot The number/index of (the) active dot(s)
      * @see #getActiveDot()
@@ -205,23 +190,24 @@ public class PageIndicator extends View {
     }
 
     /**
-     * Return the Drawable currently used for each dot.
+     * Returns the drawable currently used for each dot.
      * 
-     * @return The Drawable used to draw each dot.
+     * @return The drawable used to draw each dot.
      */
     public Drawable getDotDrawable() {
         return mDotDrawable;
     }
 
     /**
-     * Set the Drawable used for each dot. The given Drawable may be a
-     * StateListDrawable in order to take advantage of the selection system. If
-     * your StateListDrawable contains a android.R.attr.state_selected state,
-     * the Drawable will be used to represent a selected dot.
-     * <em><strong>Note :</strong> this methods does not support Drawable
+     * Sets the {@link Drawable} used for each dot. The given {@link Drawable}
+     * may be a {@link StateListDrawable} in order to take advantage of the
+     * selection system. If your {@link StateListDrawable} contains a
+     * {@link android.R.attr.state_selected} state, the {@link Drawable} will be
+     * used to represent a selected dot.
+     * <em><strong>Note :</strong> this methods does not support {@link Drawable}
      * that has no intrinsic dimensions.</em>
      * 
-     * @param dotDrawable The Drawable used to represents a dot
+     * @param dotDrawable The {@link Drawable} used to represents a dot
      */
     public void setDotDrawable(Drawable dotDrawable) {
         if (dotDrawable != mDotDrawable) {
@@ -260,7 +246,7 @@ public class PageIndicator extends View {
     }
 
     /**
-     * Set the spacing between each dot
+     * Sets the spacing between each dot
      * 
      * @param dotSpacing The spacing between each dot.
      */
@@ -273,7 +259,7 @@ public class PageIndicator extends View {
     }
 
     /**
-     * Return the gravity used to draw dots/
+     * Returns the gravity
      * 
      * @return The current gravity
      */
